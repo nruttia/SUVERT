@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SUVERT AG – Our Services</title>
+
+  <style>
+    :root {
+      --green: #6fbf4a;
+      --dark: #000000;
+      --light: #f6f8f6;
+      --gray: #6b7280;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    body {
+      background: var(--light);
+      color: #111;
+      line-height: 1.6;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: #000;
+      padding: 18px 10%;
+      display: flex;
+      justify-content: flex-end;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover { color: var(--green); }
+
+    /* HERO */
+    header {
+      background: #000;
+      color: white;
+      padding: 90px 10%;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero h1 { font-size: 3rem; margin-bottom: 16px; }
+    .hero h1 span { color: var(--green); }
+    .hero p { max-width: 560px; color: #f1f5f9; margin-bottom: 30px; }
+
+    .btn {
+      background: var(--green);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+    }
+
+    .logo img { max-width: 300px; }
+
+    /* SECTIONS */
+    section { padding: 80px 10%; }
+    section h2 { text-align: center; font-size: 2.4rem; margin-bottom: 40px; }
+
+    /* CARD GRID */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      align-items: stretch; /* equal height cells */
+    }
+
+    .card-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      height: 100%;
+    }
+
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: 300px; /* enforce uniform white box height */
+    }
+
+    .card-wrap:hover .card {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+    }
+
+    .card img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 16px;
+    }
+
+    .card h3 { margin-bottom: 8px; }
+    .card p { color: var(--gray); font-size: 0.95rem; }
+
+    /* Long text BELOW the card, green background, fully expands */
+    .long-text {
+      background: var(--green);
+      color: white;
+      padding: 16px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      line-height: 1.55;
+      max-height: 0;        /* collapsed by default */
+      overflow: hidden;     /* no scrollbars */
+      opacity: 0;
+      transition: max-height 0.35s ease, opacity 0.35s ease;
+      text-align: left;
+    }
+
+    .card-wrap:hover .long-text {
+      max-height: 800px;    /* generous height to show all text */
+      opacity: 1;
+    }
+
+    /* SPECIALTY GRID */
+    .speciality-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .speciality-block {
+      background: white;
+      padding: 24px;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .speciality-block:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    }
+
+    .speciality-block img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 12px;
+    }
+
+    .speciality-block h3 {
+      color: var(--green);
+      margin-bottom: 12px;
+      font-size: 1.2rem;
+    }
+
+    .speciality-block ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .speciality-block li {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 900px) {
+      header { grid-template-columns: 1fr; text-align: center; }
+      .hero h1 { font-size: 2.4rem; }
+      .speciality-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Our Services</a></li>
+      <li><a href="approach.html">Our Approach</a></li>
+      <li><a href="thinking.html">Our Thinking</a></li>
+      <li><a href="contact.html">Our Contacts</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <header>
+    <div class="hero">
+      <h1><span>Our Services</span></h1>
+      <p>
+        Deep expertise in operational finance work, digital finance transformation,
+        and system implementations — enabling scalable, AI-powered finance functions.
+      </p>
+      <a href="contact.html" class="btn">Get in Touch</a>
+    </div>
+    <div class="logo">
+      <img src="suvert-logo.png" alt="SUVERT AG Logo">
+    </div>
+  </header>
+
+  <!-- WHAT WE DELIVER -->
+  <section>
+    <h2>What We Deliver</h2>
+    <div class="cards">
+      <!-- Card 1 -->
+      <div class="card-wrap">
+        <div class="card">
+          <img src="expertise-cfo.svg" alt="Ad-Interim CFO">
+          <h3>Ad-Interim CFO<br>Controlling & Accounting</h3>
+          <p>Hands-on financial leadership to stabilise, scale, and optimise your finance function.</p>
+        </div>
+        <div class="long-text">
+          We step in as interim CFOs to provide immediate stability and strategic oversight. From establishing robust controlling frameworks to streamlining accounting processes, we ensure transparency, compliance, and efficiency. Our approach balances tactical execution with long‑term scalability, giving your organisation the financial clarity and leadership it needs during periods of transition or growth.
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card-wrap">
+        <div class="card">
+          <img src="expertise-consulting.svg" alt="Consulting & Advisory">
+          <h3>Consulting & Advisory</h3>
+          <p>Strategic financial and digital advisory aligned to your business goals.</p>
+        </div>
+        <div class="long-text">
+          We partner with leadership teams to shape strategies that drive sustainable value creation. Leveraging proven consulting methodologies, we deliver actionable insights across finance, digital transformation, and operational excellence. Whether it’s market entry, restructuring, or performance optimisation, our advisory services are designed to be pragmatic, data‑driven, and tailored to your unique objectives.
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card-wrap">
+        <div class="card">
+          <img src="expertise-tech.svg" alt="Technology Implementations">
+          <h3>Technology Implementations</h3>
+          <p>Vendor-agnostic AI and finance technology implementations executed with precision.</p>
+        </div>
+        <div class="long-text">
+          We guide organisations through the selection, deployment, and optimisation of finance and AI technologies. Our vendor‑agnostic stance ensures solutions are chosen for fit, not bias. With a focus on precision execution, we integrate systems seamlessly into your operations, enabling automation, advanced analytics, and scalable digital finance capabilities. The result: a future‑ready finance function that empowers smarter decisions.
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- OUR AREAS OF SPECIALTY (3×2 matrix, includes Financial Strategy) -->
+<section class="speciality">
+  <h2>Our Areas of Specialty</h2>
+  <div class="speciality-grid">
+    <div class="speciality-block">
+      <img src="business-finance.svg" alt="Business Finance Icon">
+      <h3>Business Finance</h3>
+      <ul>
+        <li>Performance management</li>
+        <li>Financial Planning &amp; Analysis</li>
+      </ul>
+    </div>
+
+    <div class="speciality-block">
+      <img src="treasury.svg" alt="Treasury Icon">
+      <h3>Treasury</h3>
+      <ul>
+        <li>Operational cash flow forecasting</li>
+        <li>Currency risk management</li>
+        <li>Working capital optimisation</li>
+      </ul>
+    </div>
+
+    <div class="speciality-block">
+      <img src="shared-services.svg" alt="Shared Services Icon">
+      <h3>Shared Service Center Operations</h3>
+      <ul>
+        <li>O2C — Order-to-Cash</li>
+        <li>R2R — Record-to-Report</li>
+        <li>S2P — Source-to-Pay</li>
+      </ul>
+    </div>
+
+    <div class="speciality-block">
+      <img src="it-controlling.svg" alt="IT Controlling Icon">
+      <h3>IT Controlling</h3>
+      <ul>
+        <li>Cost allocation and budgeting</li>
+        <li>Project portfolio governance</li>
+        <li>FinOps for cloud</li>
+      </ul>
+    </div>
+
+    <div class="speciality-block">
+      <img src="ma.svg" alt="M&A Icon">
+      <h3>M&amp;A</h3>
+      <ul>
+        <li>Financial due diligence</li>
+        <li>Integration planning</li>
+        <li>Synergy tracking</li>
+      </ul>
+    </div>
+
+    <div class="speciality-block">
+      <img src="financial-strategy.svg" alt="Financial Strategy Icon">
+      <h3>Financial Strategy</h3>
+      <ul>
+        <li>Capital allocation</li>
+        <li>Funding &amp; investor readiness</li>
+        <li>Value creation roadmap</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+  <footer style="background:#000;color:#d1d5db;text-align:center;padding:32px 10%;font-size:0.9rem;">
+    © 2025 SUVERT AG. All rights reserved.
+  </footer>
+
+</body>
+</html>
+
+
+

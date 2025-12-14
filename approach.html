@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SUVERT AG – Our Approach</title>
+<style>
+:root {
+  --green: #6fbf4a;
+  --dark: #000000;
+  --light: #f6f8f6;
+  --gray: #6b7280;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+body {
+  background: var(--light);
+  color: #111;
+  line-height: 1.6;
+}
+/* NAV */
+.navbar {
+  background: #000;
+  padding: 18px 10%;
+  display: flex;
+  justify-content: flex-end;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+.nav-links a {
+  color: #e5e7eb;
+  text-decoration: none;
+}
+.nav-links a:hover {
+  color: var(--green);
+}
+/* HERO */
+header {
+  background: #000;
+  color: white;
+  padding: 90px 10%;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+}
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+.hero h1 span {
+  color: var(--green);
+}
+.hero p {
+  max-width: 560px;
+  color: #f1f5f9;
+  margin-bottom: 30px;
+}
+.btn {
+  background: var(--green);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: background 0.3s ease;
+}
+.btn:hover {
+  background: #5a9c3a;
+}
+.logo img {
+  max-width: 300px;
+}
+/* SECTIONS */
+section {
+  padding: 80px 10%;
+}
+section h2 {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 40px;
+}
+/* APPROACH BOXES */
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 28px;
+}
+.approach-item {
+  background: white;
+  padding: 32px;
+  border-radius: 18px;
+  border-left: 6px solid var(--green);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+.approach-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+}
+.approach-item h3 {
+  margin-bottom: 12px;
+}
+.approach-item > p {
+  color: var(--gray);
+  margin-bottom: 20px;
+}
+/* EXPAND BUTTON */
+.expand-btn {
+  background: rgba(111, 191, 74, 0.1);
+  color: var(--green);
+  border: 2px solid var(--green);
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.expand-btn:hover {
+  background: var(--green);
+  color: white;
+}
+.expand-btn::after {
+  content: '▼';
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+.expand-btn.active::after {
+  transform: rotate(180deg);
+}
+/* DETAILED CONTENT */
+.detailed-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+  margin-top: 20px;
+}
+.detailed-content.active {
+  max-height: 3000px;
+}
+.detailed-content h4 {
+  color: var(--green);
+  margin-top: 20px;
+  margin-bottom: 12px;
+  font-size: 1.2rem;
+}
+.detailed-content ul {
+  margin-left: 20px;
+  color: var(--gray);
+  line-height: 1.8;
+}
+.detailed-content ul ul {
+  margin-top: 8px;
+  margin-left: 20px;
+}
+.detailed-content li {
+  margin-bottom: 8px;
+}
+.outcome-box {
+  background: rgba(111, 191, 74, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 24px;
+  border-left: 4px solid var(--green);
+}
+.outcome-box h4 {
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.outcome-box ul {
+  margin-left: 20px;
+  margin-top: 12px;
+}
+/* CTA */
+.cta {
+  background: white;
+  text-align: center;
+  padding: 90px 10%;
+}
+.cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+.cta p {
+  max-width: 660px;
+  margin: 0 auto 34px;
+  color: var(--gray);
+}
+/* FOOTER */
+footer {
+  background: #000;
+  color: #d1d5db;
+  text-align: center;
+  padding: 32px 10%;
+}
+
+@media (max-width: 900px) {
+  header {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .approach-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+<nav class="navbar">
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="services.html">Our Services</a></li>
+<li><a href="approach.html">Our Approach</a></li>
+<li><a href="thinking.html">Our Thinking</a></li>
+<li><a href="contact.html">Our Contacts</a></li>
+</ul>
+</nav>
+
+<header>
+  <div class="hero">
+    <h1><span>Our Approach</span></h1>
+    <p>
+      We work in a structured and proven approach, while remaining flexible to
+      adjust according to the specific needs of our customers.
+    </p>
+    <a href="contact.html" class="btn">Get in Touch</a>
+  </div>
+  <div class="logo">
+    <img src="suvert-logo.png" alt="SUVERT AG Logo">
+  </div>
+</header>
+
+<section>
+<h2>How We Work</h2>
+<div class="approach-grid">
+  
+  <!-- 1. DISCOVERY & ANALYSIS -->
+  <div class="approach-item">
+    <h3><strong>1. Discovery & Analysis</strong></h3>
+    <p>
+      We thoroughly assess your current financial operations, challenges,
+      and opportunities.
+    </p>
+    <button class="expand-btn" onclick="toggleDetails(this)">Learn More</button>
+    
+    <div class="detailed-content">
+      <h4>Discovery</h4>
+      
+      <ul>
+        <li><strong>Stakeholder Alignment</strong>
+          <ul>
+            <li>Identify key stakeholders</li>
+            <li>Conduct interviews/workshops to capture expectations, pain points, desired outcomes</li>
+            <li>Document priorities and constraints</li>
+          </ul>
+        </li>
+        <li><strong>Contextual Research</strong>
+          <ul>
+            <li>Review existing materials</li>
+            <li>Benchmark</li>
+            <li>Map out external factors</li>
+          </ul>
+        </li>
+        <li><strong>Current State Assessment</strong>
+          <ul>
+            <li>Analyse as-is processes, systems, tools</li>
+            <li>Identify gaps</li>
+            <li>Gather quantitative data & qualitative insights</li>
+          </ul>
+        </li>
+        <li><strong>Problem Framing</strong>
+          <ul>
+            <li>Translate findings in problem statements</li>
+            <li>Define scope: what's in, what's out</li>
+            <li>Establish success criteria</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <h4>Analysis</h4>
+      
+      <ul>
+        <li><strong>Data Structuring</strong>
+          <ul>
+            <li>Organise information</li>
+          </ul>
+        <li><strong>Gap & Root Cause Analysis</strong>
+          <ul>
+            <li>Compare current vs. desired state</li>
+          </ul>
+        <li><strong>Scenario Modeling</strong>
+          <ul>
+            <li>Build models to test different strategies</li>
+          </ul>
+        <li><strong>Insight Generation</strong>
+          <ul>
+            <li>Highlight opportunities, risks, prioritise recommendations</li>
+          <ul>
+      
+      <div class="outcome-box">
+        <h4>Outcome</h4>
+        <ul>
+          <li>A clear understanding of the problem space</li>
+          <li>A structured set of insights</li>
+          <li>Prioritised recommendations</li>
+          <li>Stakeholder confidence that the process is rigorous and aligned with their goals</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 2. STRATEGIC PLANNING -->
+  <div class="approach-item">
+    <h3><strong>2. Strategic Planning</strong></h3>
+    <p>
+      We develop a vision and objectives with a customised roadmap
+    </p>
+    <button class="expand-btn" onclick="toggleDetails(this)">Learn More</button>
+    
+    <div class="detailed-content">
+        <ul>
+        <ul>
+        <ul>
+        <ul>
+	<ul>
+        <li><strong>Vision & Objectives</strong>
+          <ul>
+            <li>Define goals</li>
+            <li>Align with stakeholder priorities and values</li>
+            <li>Establish measurable KPIs and themes</li>
+          </ul>
+        </li>
+        <li><strong>Strategic Options</strong>
+          <ul>
+            <li>Explore multiple pathways</li>
+            <li>Evaluate each option</li>
+            <li>Prioritise</li>
+          </ul>
+        </li>
+        <li><strong>Resource Planning</strong>
+          <ul>
+            <li>Assess internal capabilities</li>
+            <li>Identify gaps and external support needs</li>
+            <li>Allocate resources</li>
+          </ul>
+        </li>
+        <li><strong>Governance & Alignment</strong>
+          <ul>
+            <li>Set up decision-making structures, steering committees</li>
+            <li>Define roles, responsibilities, escalation paths</li>
+            <li>Ensure cross-functional alignment, buy-in</li>
+          </ul>
+        </li>
+        <li><strong>Roadmap Development</strong>
+          <ul>
+            <li>Build a phased timeline with milestones</li>
+            <li>Include quick wins and long-term plays</li>
+            <li>Integrate change management and communication plans</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <div class="outcome-box">
+        <h4>Outcome</h4>
+        <ul>
+          <li><strong>Clear Strategic Roadmap</strong></li>
+          <li><strong>Prioritised Initiatives</strong></li>
+          <li><strong>Aligned Stakeholders</strong></li>
+          <li><strong>Defined KPIs & Metrics</strong></li>
+          <li><strong>Governance Structure</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 3. IMPLEMENTATION & OPTIMIZATION -->
+  <div class="approach-item">
+    <h3><strong>3. Implementation & Optimisation</strong></h3>
+    <p>
+      We execute solutions with precision and optimise to maximise ROI.
+    </p>
+    <button class="expand-btn" onclick="toggleDetails(this)">Learn More</button>
+    
+    <div class="detailed-content">
+      <ul>
+        <li><strong>Improvement Initiatives Execution</strong>
+          <ul>
+            <li>Launch initiatives with ownership, timelines</li>
+            <li>Use agile methods depending on project type</li>
+            <li>Track progress via dashboards & weekly stand-ups</li>
+          </ul>
+        </li>
+        <li><strong>Performance Monitoring</strong>
+          <ul>
+            <li>Measure KPIs</li>
+            <li>Conduct monthly reviews, quarterly deep dives</li>
+          </ul>
+        </li>
+        <li><strong>Risk & Issue Management</strong>
+          <ul>
+            <li>Identify potential blockers early</li>
+            <li>Define risk mitigation plans</li>
+            <li>Escalate critical issues through governance channels</li>
+          </ul>
+        </li>
+        <li><strong>Optimisation & Scaling</strong>
+          <ul>
+            <li>Analyse what's working and replicate success</li>
+            <li>Refine processes, tools, teams</li>
+            <li>Scale solutions</li>
+          </ul>
+        </li>
+        <li><strong>Continuous Improvement</strong>
+          <ul>
+            <li>Embed feedback loops from clients, teams</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <div class="outcome-box">
+        <h4>Outcome</h4>
+        <ul>
+          <li><strong>Successful Execution of Initiatives</strong></li>
+          <li><strong>Performance Visibility</strong></li>
+          <li><strong>Risk Mitigation in Practice</strong></li>
+          <li><strong>Optimised Processes</strong></li>
+          <li><strong>Scalable Solutions</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+</div>
+</section>
+
+<section class="cta">
+<h2><strong>Ready to Transform your Finance Operations</strong></h2>
+<p>Let's discuss how our structured yet flexible approach can support your organization.</p>
+<a href="contact.html" class="btn">Get in Touch</a>
+</section>
+
+<footer>© 2025 SUVERT AG. All rights reserved.</footer>
+
+<script>
+function toggleDetails(button) {
+  const content = button.nextElementSibling;
+  const isActive = content.classList.contains('active');
+  
+  // Toggle active state
+  content.classList.toggle('active');
+  button.classList.toggle('active');
+  
+  // Update button text
+  button.textContent = isActive ? 'Learn More' : 'Show Less';
+  
+  // Re-add the arrow
+  button.innerHTML = isActive ? 'Learn More' : 'Show Less';
+}
+</script>
+
+</body>
+</html>
